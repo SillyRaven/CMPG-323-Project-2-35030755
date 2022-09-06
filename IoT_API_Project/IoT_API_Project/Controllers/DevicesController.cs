@@ -92,7 +92,7 @@ namespace IoT_API_Project.Controllers
             _context.Devices.Add(devices);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetDevices", new { id = devices.DeviceId }, devices);
+            return CreatedAtAction(nameof(GetDevices), new { id = devices.DeviceId }, devices);
         }
 
         // DELETE: api/Devices/5
