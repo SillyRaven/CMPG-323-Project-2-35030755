@@ -7,7 +7,7 @@
       "applicationUrl": "http://localhost:13451",
       "sslPort": 44319
     }
-  },
+  }, 
   "profiles": {
     "IoT_API_Project": {
       "commandName": "Project",

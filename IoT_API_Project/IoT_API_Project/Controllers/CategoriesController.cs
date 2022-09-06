@@ -9,7 +9,7 @@ using Project2_IoT_Management.Models;
 
 namespace IoT_API_Project.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[Controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
     {
