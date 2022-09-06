@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Project2_IoT_Management.Models
 {
-    public class ZonesContext : DbContext
+    public class ZoneContext : DbContext
     {
-        public ZonesContext(DbContextOptions<ZonesContext> options)
+        public ZoneContext(DbContextOptions<ZoneContext> options)
             : base(options)
         {
         }
