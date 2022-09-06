@@ -92,7 +92,7 @@ namespace IoT_API_Project.Controllers
             _context.Zones.Add(zones);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetZones", new { id = zones.ZoneID }, zones);
+            return CreatedAtAction(nameof(GetZones), new { id = zones.ZoneID }, zones);
         }
 
         // DELETE: api/Zones/5
