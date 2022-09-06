@@ -3,13 +3,13 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Project2_IoT_Management.Models
 {
-        public class DevicesContext : DbContext
+    public class DeviceContext : DbContext
+    {
+        public DeviceContext(DbContextOptions<DeviceContext> options)
+            : base(options)
         {
-            public DevicesContext(DbContextOptions<DevicesContext> options)
-                : base(options)
-            {
-            }
-
-            public DbSet<Devices> Devices { get; set; } = null!;
         }
+
+        public DbSet<Devices> Devices { get; set; } = null!;
+    }
 }

@@ -1,8 +1,10 @@
-﻿namespace Project2_IoT_Management.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Project2_IoT_Management.Models
 {
     public class Devices
     {
-        public long DeviceId { get; set; }
+        [Key]public long DeviceId { get; set; }
         public long ZoneID { get; set; }
         public bool CategoryID { get; set; }
         public string? DeviceName { get; set; }
