@@ -47,9 +47,7 @@ if (builder.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-app.UseEndpoints(endpoints => {
-    endpoints.MapControllers(); 
-});
+
 //app.MapControllers();
 app.UseSwagger();
 app.UseSwaggerUI(c =>
