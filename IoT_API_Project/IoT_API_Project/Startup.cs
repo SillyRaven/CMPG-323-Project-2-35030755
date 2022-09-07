@@ -1,10 +1,23 @@
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-
-
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Project2_IoT_Management.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//ConfigureServices
+builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "InternetOfThings",
+        Description = "Simple test",
+    });
+});
+
 
 // Add services to the container.
 
@@ -28,8 +41,11 @@ var app = builder.Build();
 if (builder.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
-   // app.UseSwagger();
-   // app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoApi v1"));
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Showing API V1");
+    });
 }
 
 app.UseHttpsRedirection();
