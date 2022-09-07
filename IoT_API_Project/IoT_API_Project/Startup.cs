@@ -29,12 +29,6 @@ builder.Services.AddDbContext<DeviceContext>(opt =>
     opt.UseInMemoryDatabase("Device"));
 builder.Services.AddDbContext<ZoneContext>(opt =>
     opt.UseInMemoryDatabase("Zone"));
-
-//builder.Services.AddSwaggerGen(c =>
-//{
-//    c.SwaggerDoc("v1", new() { Title = "InternetOfThings", Version = "v1" });
-//});
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
