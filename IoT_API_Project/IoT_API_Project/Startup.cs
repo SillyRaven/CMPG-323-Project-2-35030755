@@ -41,17 +41,19 @@ var app = builder.Build();
 if (builder.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Showing API V1");
-    });
+
 }
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
-app.MapControllers();
-
+app.UseEndpoints(endpoints => {
+    endpoints.MapControllers(); 
+});
+//app.MapControllers();
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Showing API V1");
+});
 app.Run();
