@@ -29,6 +29,7 @@ builder.Services.AddDbContext<DeviceContext>(opt =>
     opt.UseInMemoryDatabase("Device"));
 builder.Services.AddDbContext<ZoneContext>(opt =>
     opt.UseInMemoryDatabase("Zone"));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
