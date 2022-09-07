@@ -17,10 +17,10 @@ builder.Services.AddDbContext<DeviceContext>(opt =>
 builder.Services.AddDbContext<ZoneContext>(opt =>
     opt.UseInMemoryDatabase("Zone"));
 
-//builder.Services.AddSwaggerGen(c =>
-//{
-//    c.SwaggerDoc("v1", new() { Title = "InternetOfThings", Version = "v1" });
-//});
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new() { Title = "InternetOfThings", Version = "v1" });
+});
 
 var app = builder.Build();
 
