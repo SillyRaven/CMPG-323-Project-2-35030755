@@ -1,14 +1,21 @@
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer;
 using Project2_IoT_Management.Models;
+using Microsoft.AspNetCore.Hosting;
+using System.Runtime.CompilerServices;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//ConfigureServices
-builder.Services.AddSwaggerGen();
-builder.Services.AddSwaggerGen(c =>
+IServiceCollection services = builder.Services;
+
+
+
+    //ConfigureServices
+services.AddSwaggerGen();
+services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
@@ -18,16 +25,21 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-
 // Add services to the container.
 
-builder.Services.AddControllers();
+services.AddControllers();
+    
+//services.AddDbContext<CategoriesContext>(opt => 
+//    opt.UseInMemoryDatabase("Category"));
+services.AddMvc();
+services.AddDbContext<CategoriesContext>(options =>
+{
+    options.UseSqlServer("DefaultConnection");
+});
 
-builder.Services.AddDbContext<CategoriesContext>(opt => 
-    opt.UseInMemoryDatabase("Category"));
-builder.Services.AddDbContext<DeviceContext>(opt =>
+services.AddDbContext<DeviceContext>(opt =>
     opt.UseInMemoryDatabase("Device"));
-builder.Services.AddDbContext<ZoneContext>(opt =>
+services.AddDbContext<ZoneContext>(opt =>
     opt.UseInMemoryDatabase("Zone"));
 
 var app = builder.Build();
