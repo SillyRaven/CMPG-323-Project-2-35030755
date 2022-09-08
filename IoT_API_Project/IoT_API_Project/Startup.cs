@@ -31,13 +31,13 @@ services.AddSwaggerGen(c =>
 
 services.AddControllers();
     
-//services.AddDbContext<CategoriesContext>(opt => 
-//    opt.UseInMemoryDatabase("Category"));
-services.AddMvc();
+services.AddDbContext<CategoriesContext>(opt => 
+   opt.UseInMemoryDatabase("Category"));
+/*services.AddMvc();
 services.AddDbContext<CategoriesContext>(options =>
 {
     options.UseSqlServer("DefaultConnection");
-});
+});*/
 
 services.AddDbContext<DeviceContext>(opt =>
     opt.UseInMemoryDatabase("Device"));
