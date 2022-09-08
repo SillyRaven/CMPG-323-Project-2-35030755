@@ -21,28 +21,6 @@ IP addresses shouldn't be an issue since a wide range of ips were added to the a
 Access was also given to all known and needed personel
 
 
-<!DOCTYPE html>
-<head>
-<head>
-        Refrence list
-</head>
-<body>
-    <details>
-        <summary>Refrences</summary>
-
-    </details>       
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
 
 
 
